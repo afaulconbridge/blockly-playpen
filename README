@@ -1,0 +1,13 @@
+This is a playpen implementation of the Blockly visual programming language.
+For information on Blockly, see http://code.google.com/p/blockly
+Note : I am not affiliated with Blockly in any way.
+
+To use, open the math.html file in your web browser. Note: Chrome may have 
+problems using local files so I suggest you use Firefox instead if you encounter
+problems.
+
+As a starting point, I suggest connecting a "print" block from the Text menu to
+a number block from the Math menu and then pressing the "Run Program" button.
+
+For things to do, try Project Euler ( http://projecteuler.net/ )
+
