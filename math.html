@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="blockly/demos/blockly_compressed.js"></script>
+        <script type="text/javascript" src="blockly/generators/javascript.js"></script>
+        <script type="text/javascript" src="blockly/language/en/_messages.js"></script>
+        
+        <script type="text/javascript" src="blockly/language/common/control.js"></script>
+        <script type="text/javascript" src="blockly/generators/javascript/control.js"></script>
+        
+        <script type="text/javascript" src="blockly/language/common/lists.js"></script>
+        <script type="text/javascript" src="blockly/generators/javascript/lists.js"></script>
+        
+        <script type="text/javascript" src="blockly/language/common/logic.js"></script>
+        <script type="text/javascript" src="blockly/generators/javascript/logic.js"></script>
+        
+        <script type="text/javascript" src="blockly/language/common/math.js"></script>
+        <script type="text/javascript" src="blockly/generators/javascript/math.js"></script>
+        
+        <script type="text/javascript" src="blockly/language/common/prcedures.js"></script>
+        <script type="text/javascript" src="blockly/generators/javascript/prcedures.js"></script>
+        
+        <script type="text/javascript" src="blockly/language/common/text.js"></script>
+        <script type="text/javascript" src="blockly/generators/javascript/text.js"></script>
+        
+        <script type="text/javascript" src="blockly/language/common/variables.js"></script>
+        <script type="text/javascript" src="blockly/generators/javascript/variables.js"></script>
+    
+        <style>
+            html, body {
+                background-color: #fff;
+                margin: 0;
+                padding:0;
+                overflow: hidden;
+            }
+            .blocklySvg {
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+        <script>
+            function init() {
+                Blockly.inject(document.getElementById("blocklyarea"), {path: 'blockly/'});
+                // Let the top-level application know that Blockly is ready.
+                window.parent.blocklyLoaded(Blockly);
+            }
+
+            function runButtonClick(){
+                Blockly.mainWorkspace.traceOn(true);
+                var code = Blockly.Generator.workspaceToCode('JavaScript');
+                try {
+                    eval(code);
+                } catch (e) {
+                    // A boolean is thrown for normal termination.
+                    // Abnormal termination is a user error.
+                    if (typeof e != 'boolean') {
+                        alert(e);
+                    }
+                    alert(e)
+                }
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <h1>Blockly playpen</h1>
+        <button id="runButton" class="launch" onclick="runButtonClick();">Run Program</button>
+        <hr />
+        <div id="blocklyarea">
+        </div>
+    </body>
+</html>
